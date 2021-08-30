@@ -1,11 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
 import React from 'react'
 import { Button, Toast } from 'antd-mobile'
 // import 'antd-mobile/dist/antd-mobile.css';
 
 function showToast() {
-  Toast.info('This is a toast tips !!!', 2);
+  Toast.info('This is a toast tips !!!', 2)
   console.log('123')
   // try {
   //   const promise = new Promise((resolve, reject) => {
@@ -67,7 +67,8 @@ function App() {
         <Button type='primary' onClick={showToast}>text only</Button>
       </header>
     </div>
+    // <div>nihao </div>
   )
 }
 
-export default App;
+export default App
