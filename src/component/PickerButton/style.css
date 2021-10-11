@@ -1,0 +1,9 @@
+.picker-button{
+  width: 350px;
+  height: 150px;
+  margin-top:6px;
+  background-color: rgb(17, 7, 44);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}

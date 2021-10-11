@@ -1,0 +1,10 @@
+.bottom-button{
+  width: 350px;
+  height: 150px;
+
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(31, 58, 82);
+
+}

@@ -2,9 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+//分析网页性能
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
+  //严格模式，规范写法
   <React.StrictMode>
     <App />
   </React.StrictMode>,

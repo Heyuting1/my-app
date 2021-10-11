@@ -3,10 +3,15 @@ import './App.css'
 import React from 'react'
 import { Button, Toast } from 'antd-mobile'
 // import 'antd-mobile/dist/antd-mobile.css';
+import BottonAndText from './component/BottomButton'
+import PickerButton from './component/PickerButton'
+
 
 function showToast() {
+  // 验证toast需要传入字符串
   Toast.info('This is a toast tips !!!', 2)
-  console.log('123')
+  console.log('this', this)
+  //验证try（）catch，catch不到其中的promise的异常
   // try {
   //   const promise = new Promise((resolve, reject) => {
   //     //resolve('fulfilled'); // 状态由 pending => fulfilled
@@ -32,6 +37,7 @@ class Welcome extends React.Component {
       'b':'2'
     }
     return  array['c'] ? <div>显示：{array['c']}</div> :null
+
     // return  array['c'] && <div>显示：{array['c']}</div>
     // return (
     //   <div>{array}</div>
@@ -39,12 +45,13 @@ class Welcome extends React.Component {
 
   }
 }
-function App() {
-  const array={
-    'a':'1',
-    'b':'2'
+
+function App(){
+  const arrayTest={
+    a:'1',
+    b:'2'
   }
-  console.log(array['c'])
+  // const key1 ='我是变量key1'
   // return array['c'] && <div></div>
   return (
     <div className="App">
@@ -61,10 +68,28 @@ function App() {
         >
           Learn React My-app
         </a>
-        {null}
-        {undefined}
         <Welcome/>
-        <Button type='primary' onClick={showToast}>text only</Button>
+        {/* <Button type='primary' onClick={showToast}>text only</Button> */}
+        <Button type='primary' onClick={()=>{showToast(arrayTest)}}>text only</Button>
+        <BottonAndText
+          name={'小按钮'}
+        >
+          {
+            <div className='picker-children'>
+              <Button type='ghost'>children文字</Button>
+            </div>
+          }
+        </BottonAndText>
+        <PickerButton
+          // key1={key1}
+          key1={'key1'}
+        >
+          {
+            <div className='picker-children'>
+              <span>我是一串children文字</span>
+            </div>
+          }
+        </PickerButton>
       </header>
     </div>
     // <div>nihao </div>
