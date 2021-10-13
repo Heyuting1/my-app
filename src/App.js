@@ -1,34 +1,13 @@
 import logo from './logo.svg'
 import './App.css'
 import React from 'react'
-import { Button, Toast } from 'antd-mobile'
+import { Button, Tabs, Badge, WhiteSpace } from 'antd-mobile'
 // import 'antd-mobile/dist/antd-mobile.css';
 import BottonAndText from './component/BottomButton'
 import PickerButton from './component/PickerButton'
+import ToastButton from './component/ToastButton'
 
 
-function showToast() {
-  // 验证toast需要传入字符串
-  Toast.info('This is a toast tips !!!', 2)
-  console.log('this', this)
-  //验证try（）catch，catch不到其中的promise的异常
-  // try {
-  //   const promise = new Promise((resolve, reject) => {
-  //     //resolve('fulfilled'); // 状态由 pending => fulfilled
-  //     reject('失败')
-  //   });
-  //   promise.then(result => { // onFulfilled
-  //     console.log(result); // 'fulfilled'
-  //   }
-  //   // reason => { // onRejected 不会被调用
-  //   //   console.log(reason);
-  //   // }
-  //   )
-  // } catch (err){
-  //   console.log('catch失败',err)
-  // }
-
-}
 class Welcome extends React.Component {
 
   render() {
@@ -45,55 +24,80 @@ class Welcome extends React.Component {
 
   }
 }
-
-function App(){
-  const arrayTest={
-    a:'1',
-    b:'2'
+class App extends React.Component{
+  constructor(props){
+    super(props)
+    this.state={
+      tabs:[
+        { title: <Badge><span className='badge-style'>Toast组件使用</span></Badge> },
+        { title: <Badge><span className='badge-style'>React中this</span></Badge> },
+        { title: <Badge><span className='badge-style'>样式组件</span></Badge> },
+      ]
+    }
   }
+
+
   // const key1 ='我是变量key1'
   // return array['c'] && <div></div>
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React My-app
-        </a>
-        <Welcome/>
-        {/* <Button type='primary' onClick={showToast}>text only</Button> */}
-        <Button type='primary' onClick={()=>{showToast(arrayTest)}}>text only</Button>
-        <BottonAndText
-          name={'小按钮'}
-        >
-          {
-            <div className='picker-children'>
-              <Button type='ghost'>children文字</Button>
+  render(){
+    const {tabs} = this.state
+    return(
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React My-app
+          </a>
+          <Welcome/>
+          <WhiteSpace/>
+          <Tabs tabs={tabs}
+            initialPage={1}
+            // onChange={(tab, index) => { console.log('onChange', index, tab) }}
+            // onTabClick={(tab, index) => { console.log('onTabClick', index, tab)}}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+              <ToastButton/>
             </div>
-          }
-        </BottonAndText>
-        <PickerButton
-          // key1={key1}
-          key1={'key1'}
-        >
-          {
-            <div className='picker-children'>
-              <span>我是一串children文字</span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+              <BottonAndText
+                name={'小按钮'}
+              >
+                {
+                  <div className='picker-children'>
+                    <Button type='ghost'>children文字</Button>
+                  </div>
+                }
+              </BottonAndText>
             </div>
-          }
-        </PickerButton>
-      </header>
-    </div>
-    // <div>nihao </div>
-  )
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
+              <PickerButton
+                // key1={key1}
+                key1={'key1'}
+              >
+                {
+                  <div className='picker-children'>
+                    <span>我是一串children文字</span>
+                  </div>
+                }
+              </PickerButton>
+            </div>
+          </Tabs>
+          {/* <Button type='primary' onClick={showToast}>text only</Button> */}
+
+
+
+        </header>
+      </div>
+    )
+  }
 }
 
 export default App

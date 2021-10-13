@@ -36,7 +36,8 @@ module.exports = {
     'module': true,      // 样例：如果此处注释掉，上边的module则会标红
     'test': true,
     'expect': true,
-    'API':true
+    'API':true,
+    'require':true
   },
   // 插件
   'plugins': [
@@ -52,10 +53,6 @@ module.exports = {
     ],
     'linebreak-style': 'off',
     'react/prop-types': 0,   // 进行参数的验证
-    'quotes': [
-      'error',
-      'single'
-    ],
     'semi': [
       'error',
       'never'
